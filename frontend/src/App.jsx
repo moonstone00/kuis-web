@@ -1,11 +1,11 @@
 import './App.css'
-import Register from './pages/auth/Register'
+import RouterMain from './routes/RouterMain'
 
 function App() {
 
   return (
     <>
-      <Register/>
+      <RouterMain/>
     </>
   )
 }
