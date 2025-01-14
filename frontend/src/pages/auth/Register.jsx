@@ -73,7 +73,6 @@ export default function Register() {
                                 <div>
                                     <label className='text-cyan-300' >Enter Your Email*</label>
                                     <div className='flex items-center mt-2' >
-
                                         {
                                             icon ?
                                             (
