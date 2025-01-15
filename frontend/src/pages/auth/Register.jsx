@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { done, arrow } from '../../assets/images'
+import Container from "../../components/layout/container"
 
 export default function Register() {
 
@@ -53,8 +54,7 @@ export default function Register() {
     }, [])
 
     return (
-        <div className='overflow-y-scroll overflow-x-hidden'>
-            <div className='flex justify-center items-center bg-black w-full min-h-screen' >
+  <Container>
                 <div className='flex flex-col bg-container-form w-[600px] h-min p-6 ' >
                     <div className='flex gap-3'>
                         <div className='bg-red-600 w-4 h-4 rounded-full' ></div>
@@ -148,7 +148,6 @@ export default function Register() {
                         }
                     </form>
                 </div>
-            </div>
-        </div>
+        </Container>
     )
 }
