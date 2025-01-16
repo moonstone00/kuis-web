@@ -33,7 +33,9 @@ export default function Login() {
             url: 'http://localhost:3200/users/login',
             data: requestingData
         }).then((result) => {
-            console.log('Data', result.data.data)
+            localStorage.setItem('nip', result.data.data.nip)
+            localStorage.setItem('nama', result.data.data.nama)
+            navigate('/admin/dashboard')
         }).catch(() => {
             alert('NIP atau Password salah!!!')
         })
