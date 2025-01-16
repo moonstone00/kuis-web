@@ -9,12 +9,21 @@ const Question = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100' >
-      <div className='bg-white p-6 rounded-lg shadow-lg w-10/12 max-fit-content'>
-        <h2 className='text-xl font-semibold mb-4'>Pertanyaan 1 dari 10</h2>
-        <p className='flex flex-col justify-start bg-blue-100 p-3 border-solid border-2 border-green-100'> Pilihlah salah satu Jawaban dari soal yang diberikan!</p>
-        <p className='mb-4 mt-5'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel odit maiores praesentium quibusdam voluptas. 
-            Voluptate laudantium, unde maxime ut ipsam iste sit doloremque blanditiis minus ea, repellat, omnis assumenda? Enim!</p>
+    <div className='flex flex-col items-center justify-center min-h-screen bg-black text-white'>
+      <div className='bg-[#37176b69] p-6 rounded-lg shadow-lg w-10/12 max-fit-content'>
+        <div className='flex gap-3'>
+          <div className='bg-red-600 w-4 h-4 rounded-full'></div>
+          <div className='bg-yellow-600 w-4 h-4 rounded-full'></div>
+          <div className='bg-green-600 w-4 h-4 rounded-full'></div>
+        </div>
+        <h2 className='text-xl font-semibold mb-4 mt-5'>Pertanyaan 1 dari 10</h2>
+        <p className='flex flex-col justify-start bg-[#a928e0]-700 p-3 border-solid border-2 border-[#a230d3] text-white'>
+          Pilihlah salah satu Jawaban dari soal yang diberikan!
+        </p>
+        <p className='mb-4 mt-5 text-white'>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel odit maiores praesentium quibusdam voluptas.
+          Voluptate laudantium, unde maxime ut ipsam iste sit doloremque blanditiis minus ea, repellat, omnis assumenda? Enim!
+        </p>
         <form>
           <div className='mb-4'>
             <label className='block mb-2'>
@@ -45,7 +54,7 @@ const Question = () => {
                 onChange={handleOptionChange}
                 className='mr-2'
               />
-             C. Ini juga testing
+              C. Ini juga testing
             </label>
             <label className='block mb-2'>
               <input
@@ -55,7 +64,7 @@ const Question = () => {
                 onChange={handleOptionChange}
                 className='mr-2'
               />
-             D. Semua benar
+              D. Semua benar
             </label>
           </div>
         </form>
