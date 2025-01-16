@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react"
-import { done, arrow } from '../../assets/images'
+import axios from 'axios'
 import Container from "../../components/layout/container"
+import { useNavigate } from "react-router-dom"
+import { done, arrow } from '../../assets/images'
+import { useEffect, useState } from "react"
 
 export default function Login() {
 
@@ -8,12 +10,33 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const [time, setTime] = useState(false)
     const [icon, setIcon] = useState(false)
+    const navigate = useNavigate()
+
+    const handleNIP = (inputNIP) => {
+        setNIP(inputNIP)
+    }
+
+    const handlePassword = (inputPassword) => {
+        setPassword(inputPassword)
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        const formData = new FormData()
-        formData.append('password', password)
+        const requestingData = {
+            nip: NIP,
+            password: password
+        }
+
+        axios({
+            method: 'POST',
+            url: 'http://localhost:3200/users/login',
+            data: requestingData
+        }).then((result) => {
+            console.log('Data', result.data.data)
+        }).catch(() => {
+            alert('NIP atau Password salah!!!')
+        })
     }
 
     useEffect(() => {
@@ -53,7 +76,7 @@ export default function Login() {
 
                                         )
                                     }
-                                    <input type='text' value={NIP} onChange={(e) => setNIP(e.target.value)} className='text-white focus:outline-none focus:ring-1 focus:ring-[#0969da] bg-input-transparent w-full h-7 rounded-md py-3 px-2 mr-10' required/>
+                                    <input type='text' value={NIP} onChange={(event) => handleNIP(event.target.value)} className='text-white focus:outline-none focus:ring-1 focus:ring-[#0969da] bg-input-transparent w-full h-7 rounded-md py-3 px-2 mr-10' required/>
                                 </div>
                             </div>
                         )
@@ -72,7 +95,8 @@ export default function Login() {
                                     '-webkit-reveal': 'none',
                                     'appearance': 'none',
                                     '-webkit-appearance': 'none' }}
-                                // value={password}
+                                value={password}
+                                onChange={(event) => handlePassword(event.target.value)}
                                 className='text-white focus:outline-none focus:ring-1 focus:ring-[#0969da] bg-input-transparent w-full h-7 rounded-md py-3 px-2 mr-10'
                                 required
                             />
