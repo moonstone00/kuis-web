@@ -3,6 +3,8 @@ import Container from "../../components/layout/container"
 import { useNavigate } from "react-router-dom"
 import { done, arrow } from '../../assets/images'
 import { useEffect, useState } from "react"
+import { Meteors } from "@/components/ui/meteors";
+
 
 export default function Login() {
 
@@ -52,6 +54,8 @@ export default function Login() {
 
     return (
         <section className='bg-black flex items-center justify-center w-full min-h-screen border' >
+                  <Meteors number={30} />
+
             <Container>
                     <div className='ml-2 my-6 text-[#667694] running-text text-lg'>
                         <p>Creating a new account</p>
