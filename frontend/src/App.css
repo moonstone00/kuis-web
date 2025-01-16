@@ -26,3 +26,8 @@
   -webkit-appearance: none;
   color:red;
 }
+
+.terminal-scroll-bar::-webkit-scrollbar {
+  width: 0px;
+  min-height: 100%;
+}
