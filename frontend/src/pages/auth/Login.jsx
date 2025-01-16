@@ -36,8 +36,8 @@ export default function Login() {
             localStorage.setItem('nip', result.data.data.nip)
             localStorage.setItem('nama', result.data.data.nama)
             navigate('/admin/dashboard')
-        }).catch(() => {
-            alert('NIP atau Password salah!!!')
+        }).catch(err => {
+            alert('NIP atau Password Salah!!!')
         })
     }
 

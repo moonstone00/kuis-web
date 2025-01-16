@@ -35,4 +35,28 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const question = await QuestionsModal.findByPk(id);
+
+        if (!question) {
+            return res.status(404).json({ message: "Question not found" });
+        }
+
+        await question.destroy();
+
+        res.status(200).json({
+            message: `Question with ID ${id} has been deleted`,
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: err.message,
+        });
+    }
+});
+
+
+
 module.exports = router

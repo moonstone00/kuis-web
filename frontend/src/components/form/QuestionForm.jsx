@@ -47,13 +47,19 @@ export default function QuestionForm() {
             correctAnswer: correctAnswer
         }
 
-        axios({
-            method: 'POST',
-            url: 'http://localhost:3200/questions',
-            data: requestingData
-        }).then((result) => {
-            console.log(result.data)
-        })
+        if(question !== "") {
+            axios({
+                method: 'POST',
+                url: 'http://localhost:3200/questions',
+                data: requestingData
+            }).then((result) => {
+                alert('Data berhasil ditambahkan!!')
+            }).catch(() => {
+                alert('Data gagal ditambahkan!!')
+            })
+        } else {
+            alert('data kosong')
+        }
     }
 
     return (
@@ -106,7 +112,7 @@ export default function QuestionForm() {
                             <input onChange={(event) => handleCorrectAnswer(event.target.value)} type='text' className='terminal-scroll-bar text-white focus:outline-none border border-[#0969da] bg-input-transparent w-full h-10 rounded-md py-3 px-2 mr-3' required/>
                         </div>
                     </div>
-                    <button onClick={() => Question()} type='submit' className='w-24 h-10 border border-[#a928e0] font-thin px-2 py-1 mt-8 rounded-md' >Submit</button>
+                    <button onClick={Question} type='submit' className='w-24 h-10 border border-[#a928e0] font-thin px-2 py-1 mt-8 rounded-md' >Submit</button>
                 </div>
             </form>
         </Container>

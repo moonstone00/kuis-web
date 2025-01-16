@@ -36,7 +36,9 @@ router.post('/', async (req, res) => {
 
 router.put('/', async (req, res) => {
     const {nip, nama, password, newPassword} = req.body
+    // const userData = await UsersModel.findOne({where: {nip: nip}})
 
+    // const compare = await bcrypt.compare(password, userData.password)
     const check = await passwordCheck(nip, password)
 
     const encryptedPassword = await bcrypt.hash(newPassword, 10)
@@ -44,11 +46,11 @@ router.put('/', async (req, res) => {
     if(check.compare) {
         const users = await UsersModel.update({
             nama, password: encryptedPassword
-        }, {where: {nip: {nip}}})
+        }, {where: {nip: nip}})
 
         res.status(200).json({
-            users: {update: users[0]},
-            metadata: "User Updated!!!"
+            users: {updated: users[0]},
+            metadata: "user updated!"
         })
     } else {
         res.status(401).json({
@@ -57,7 +59,6 @@ router.put('/', async (req, res) => {
         })
     }
 })
-
 router.post('/login', async (req, res) => {
     const {nip, password} = req.body
     try {
@@ -73,7 +74,5 @@ router.post('/login', async (req, res) => {
             error: "Data Invalid"
         })
     }
-
-
 })
 module.exports = router

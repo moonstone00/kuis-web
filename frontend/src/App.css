@@ -3,7 +3,7 @@
 .bg-container-form {
   background-color: #37176b69;
   isolation: isolate;
-  overflow: hidden;
+  /* overflow: hidden; */
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   border-radius: 10px;
@@ -30,4 +30,8 @@
 .terminal-scroll-bar::-webkit-scrollbar {
   width: 0px;
   min-height: 100%;
+}
+
+input[type="radio"] {
+  zoom: 1.3; /* Perbesar ukuran */
 }
