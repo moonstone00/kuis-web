@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
     res.status(200).json({
         data: users,
-        metadata: "Test user endpoint"
+        metadata: "User endpoint"
     })
 })
 
