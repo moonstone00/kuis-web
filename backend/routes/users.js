@@ -59,6 +59,7 @@ router.put('/', async (req, res) => {
         })
     }
 })
+
 router.post('/login', async (req, res) => {
     const {nip, password} = req.body
     try {

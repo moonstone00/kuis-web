@@ -14,6 +14,15 @@ export default function Login() {
     const [icon, setIcon] = useState(false)
     const navigate = useNavigate()
 
+    useEffect(() => {
+        if(localStorage.getItem('nama')  && localStorage.getItem('nip')) {
+            navigate('/admin/dashboard')
+        }
+        setTimeout(() => {
+            setTime(true)
+        }, 800)
+    }, [])
+
     const handleNIP = (inputNIP) => {
         setNIP(inputNIP)
     }
@@ -43,14 +52,7 @@ export default function Login() {
         })
     }
 
-    useEffect(() => {
-        if(localStorage.getItem('nama') && localStorage.getItem('nip')) {
-            navigate('/admin/dashboard')
-        }
-        setTimeout(() => {
-            setTime(true)
-        }, 800)
-    }, [])
+   
 
     return (
         <section className='relative bg-black terminal-scroll-bar overflow-hidden w-full ' >

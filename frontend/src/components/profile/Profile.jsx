@@ -10,28 +10,36 @@ export default function Profile({heading}) {
     const [newPassword, setNewPassword] = useState("")
     const navigate = useNavigate()
 
-    const updateProfile = () => {
+    const updateProfile = (e) => {
+        e.preventDefault();  // Mencegah reload halaman saat submit
+    
         const requestingData = {
             nip: localStorage.getItem('nip'),
             nama: nama,
             password: password,
             newPassword: newPassword
-        }
-
-        try{
-
+        };
+    
+        try {
             axios({
                 method: 'PUT',
                 url: 'http://localhost:3200/users',
                 data: requestingData
             }).then(() => {
-                localStorage.clear();
-                alert('Data Berhasil Terupdate!!!')
-            })
-        } catch {
-            console.log('Error')
+                localStorage.clear();  
+                alert('Data Berhasil Terupdate!!!');
+                navigate('/');  
+            });
+        } catch (error) {
+            console.log('Error:', error);
+            alert('Terjadi kesalahan saat memperbarui profil');
         }
+    };
+    
 
+    const logout = () => {
+        localStorage.clear()
+        window.location.reload()
     }
 
     return (
@@ -68,7 +76,10 @@ export default function Profile({heading}) {
                             </div>
                         </div>
                     </div>
-                        <button type='submit' onClick={updateProfile} className='w-24 h-10 border border-[#a928e0] font-thin px-2 py-1 mt-2 rounded-md' >Submit</button>
+                        <div className="flex items-center justify-between" >
+                            <button type='submit' onClick={updateProfile} className='w-24 h-10 border border-[#a928e0] font-thin px-2 py-1 mt-2 rounded-md' >Submit</button>
+                            <button type='button' onClick={() => logout()} className='w-24 h-10 font-thin px-2 py-1 mt-2 rounded-md bg-red-600' >Logout</button>
+                        </div>
                 </form>
             </div>
         </div>
