@@ -77,11 +77,11 @@ const Question = () => {
             <div className="mb-4">
               {['A', 'B', 'C', 'D'].map((option, i) => {
                 const optionKey = new Map([
-                  [i, question.firstOption],
-                  [i, question.secondOption],
-                  [i, question.thirdOption],
-                  [i, question.fourthOption],
-                ])
+                  ['A', question.firstOption],
+                  ['B', question.secondOption],
+                  ['C', question.thirdOption],
+                  ['D', question.fourthOption],
+                ]);
                 return (
                   <label key={option} className="block mb-2">
                     <input
@@ -92,7 +92,7 @@ const Question = () => {
                       disabled={isLocked[index]}
                       className="mr-2"
                     />
-                    {option}. {optionKey.get(i)}
+                    {option}. {optionKey.get(option)}
                   </label>
                 );
               })}
