@@ -52,7 +52,7 @@ export default function QuestionForm() {
                 method: 'POST',
                 url: 'http://localhost:3200/questions',
                 data: requestingData
-            }).then((result) => {
+            }).then(() => {
                 alert('Data berhasil ditambahkan!!')
             }).catch(() => {
                 alert('Data gagal ditambahkan!!')
