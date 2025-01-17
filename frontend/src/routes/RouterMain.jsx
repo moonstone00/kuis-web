@@ -1,5 +1,5 @@
 import Login from "../pages/auth/Login"
-import NotFoundPage from "../notfound/notfound"
+import NotFoundPage from "../components/notfound/notfound"
 import Dashboard from "../pages/dashboard/Dashboard"
 import Question from "../pages/auth/question"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"

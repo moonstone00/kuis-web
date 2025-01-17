@@ -16,7 +16,7 @@ export default function ResultQuestions({heading}) {
     }, [])
 
     const handleChange = (check, index) => {
-        const correctAnswer = soal[index]?.correctAnswer; // Akses correctAnswer dari soal
+        const correctAnswer = soal[index]?.correctAnswer;
         if (check === correctAnswer) {
             console.log(`Jawaban benar untuk soal ${index + 1}`);
         } else {
