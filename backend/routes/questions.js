@@ -35,33 +35,33 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.put('/:id', async (req, res) => {
-    const { id } = req.params
-    const { question, firstOption, secondOption, thirdOption, fourthOption, correctAnswer } = req.body
+// router.put('/:id', async (req, res) => {
+//     const { id } = req.params
+//     const { question, firstOption, secondOption, thirdOption, fourthOption, correctAnswer } = req.body
     
-    try {
-        const questionId = await QuestionsModal.findByPk(id)
-        if(questionId) {
-            const questionUpdate = await QuestionsModal.update({
-                question,
-                firstOption,
-                secondOption, 
-                thirdOption,
-                fourthOption, 
-                correctAnswer
-            })
+//     try {
+//         const questionId = await QuestionsModal.findByPk(id)
+//         if(questionId) {
+//             const questionUpdate = await QuestionsModal.update({
+//                 question,
+//                 firstOption,
+//                 secondOption, 
+//                 thirdOption,
+//                 fourthOption, 
+//                 correctAnswer
+//             })
 
-            res.status(200).json({
-                data: questionUpdate,
-                metadata: "Question updated"
-            })
-        }
-    } catch{
-        res.status(400).json({
-            error: "Error updating question"
-        })
-    }
-})
+//             res.status(200).json({
+//                 data: questionUpdate,
+//                 metadata: "Question updated"
+//             })
+//         }
+//     } catch{
+//         res.status(400).json({
+//             error: "Error updating question"
+//         })
+//     }
+// })
 
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;
